@@ -1,0 +1,79 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.div-pintada {
+    background-color: #1344d6;
+    padding: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.titulo {
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.noticias {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    margin-left: 80px;
+}
+
+.link {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: aqua;
+}
+
+.material-symbols-outlined {
+    font-size: 80px !important;
+    margin-right: 10px;
+}   
+
+.link-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.link-content span:last-child {
+    margin-top: auto;
+}
+
+.link-content span:first-child {
+    border-left: 3px solid white;
+    padding-left: 10px;
+}
+
+.link-content span:last-child {
+    border-right: 3px solid white;
+    padding-right: 10px;
+}
+
+.link:hover .link-content span:first-child {
+    border-left: 3px solid aqua;
+}
+
+.link:hover .link-content span:last-child {
+    border-right: 3px solid aqua;
+}
+
+body {
+    height: 100vh;
+    background-image: url("https://gileduardo.com.br/ifpr/dw/img/background.png");
+    background-size: cover;
+}

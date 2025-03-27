@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 5px;
+            text-align: left;
+        }
+
+        .nome {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <hr />
+    <!-- tabela da ficha -->
+    <table>
+        <tr>
+            <td>
+                <picture>
+                    <img src="https://i.ibb.co/Hf1bQFd8/IMG-20230401-WA0005.jpg" width="250px">
+                </picture>
+            </td>
+            <td>
+                <hr />
+                <h1><b><u>DADOS PESSOAIS</u></b></h1>
+                <!-- tabela dos dados pessoais -->
+                <table>
+                    <tr>
+                        <td class="nome"><b>Nome:</b> Asafe Elias Marques</td>
+                    </tr>
+                    <tr>
+                        <td class="nome"><b>Data de nascimento:</b> 16/05/2007</td>
+                        <td class="nome"><b>Estado Civil:</b> Descubra ... 😍</td>
+                    </tr>
+                    <tr>
+                        <td class="nome"><b>Endereço:</b> Rua Francisco Machado</td>
+                        <td class="nome"><b>Número:</b> 1451</td>
+                    </tr>
+                    <tr>
+                        <td class="nome"><b>Bairro:</b> Porto Dos Padres</td>
+                    </tr>
+                    <tr>
+                        <td class="nome"><b>Cidade:</b> Paranaguá</td>
+                        <td class="nome"><b>CEP:</b> 83.221-540</td>
+                    </tr>
+                    <tr>
+                        <td class="nome"><b>CPF:</b> 101.614.549-76</td>
+                    </tr>
+                </table>
+                <hr />
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <h1><b>QUALIFICAÇÃO PROFISSIONAL</b></h1>
+    <ul>
+        <li class="nome"><b>Áreas de atuação:</b> Linguagens de programação - Engenharia de Software - Banco de Dados - Fullstack - Gogoboy - Animador de Festas - 
+            Empresário - Economia - Ator - Modelo - Cantor - Dançarino - Pintor - Escritor - Palestrante - Professor - Consultor de Beleza- Analista de Sistemas
+        </li>
+        <hr />
+        <li class="nome"><b>Tecnologias:</b> Linguagem C - Linguagem Java  -  Banco de Dados MySQL
+        </li>
+    </ul>
+    <h2><b>FORMAÇÃO ACADÊMICA</b></h2>
+    <ol>
+        <li class="nome"> <b>Ensino Fundamental</b></li>
+        <ul>
+            <li class="nome"><u>Instituição:</u> Colégio Bento Munhoz Da Rocha Neto</li>
+            <li class="nome"><u>Período:</u> 2019 - 2022</li>
+        </ul>
+        <hr />
+        <li class="nome"> <b>Ensino Médio Técnico:</b> Técnico Em Informática</li>
+        <ul>
+            <li class="nome"><u>Instituição:</u> IFPR - Instituto Federal do Paraná Campus Paranaguá</li>
+            <li class="nome"><u>Período:</u> 2023 - Cursando</li>
+            <li class="nome"><u>Título do TCC:</u> Sistema Aggimotos</li>
+        </ul>
+    </ol>
+    <hr />
+    <h2>FORMULÁRIO DE CONTATO</h2>
+    <form action="http://localhost:3000/alunos" method="POST">
+        <div class="nome">  
+            <input type="radio" name="topicos" value="Dúvidas">Dúvidas
+            <input type="radio" name="topicos" value="Mais Informações">Mais Informações
+            <input type="radio" name="topicos" value="Contratação">Contratação
+        </div>
+        <br>
+        Nome: <input class="nome" type="text" name="nome" id="nome">
+        <br> <br>
+        Email: <input class="nome" type="text" name="email" id="email">
+        <hr />
+        <input class="nome" type="submit" value="Enviar" />
+    </form>
+
+</body>
+
+</html>
