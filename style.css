@@ -1,61 +1,45 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
     text-decoration: none;
     color: white;
 }
 
-.texto {
-    font-size: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    text-align: center;
+a:hover {
+    text-shadow: 0 0 5px black;
+    transition: red 0.3s ease-in-out;
 }
 
-.sla {
-    margin-top: 45px;
-    margin-left: 100px;
-    font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-}
-
-ol {
-    display: inline-block !important;
-    margin-left: 100px;
-    font-size: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-}
-
-li {
-    margin-bottom: 10px; /* Dá um espaçamento entre os itens */
-}
-
-.div-pintada {
-    background-color: red;
-    padding: 50px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-}
-
-.background-blur {
+.fundo {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://images.steamusercontent.com/ugc/940586530515504757/CDDE77CB810474E1C07B945E40AE4713141AFD76/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.35);
     position: fixed;
-    left: -10%;
-    width: 120vw;
-    height: 120vh;
-    background: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Gragas_0.jpg") no-repeat center/cover;
-    filter: blur(20px);
     z-index: -1;
 }
 
-a:hover {
-    color: red;
-    filter: drop-shadow(0 0 5px black);
+.sla {
+    font-size: 50px;
+    text-align: center;
+    display: block;
 }
 
-li:hover {
-    color: red;
-    filter: drop-shadow(0 0 5px black);
+.tarefa-div {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    margin: 125px 0 0 200px;
+    border-radius: 20px;
+    text-align: justify;
 }
