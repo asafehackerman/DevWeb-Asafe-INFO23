@@ -2,10 +2,9 @@ function showHide(text = "") {
     const texto = document.getElementById('texto');
     
     if (text !== "") {
-        texto.style.display = 'block';  // Exibe o texto
-        texto.innerHTML = text;  // Altera o conteúdo do texto
+        texto.style.display = 'block';
+        texto.innerHTML = text;
     } else {
-        texto.style.display = 'none';  // Esconde o texto
-        texto.innerHTML = "";  // Limpa o conteúdo
+        texto.style.display = 'none';
     }
 }
