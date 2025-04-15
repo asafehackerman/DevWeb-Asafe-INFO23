@@ -1,0 +1,53 @@
+$options-flex-color: #d3b8ff;
+$screen-height: 100vh;
+$text-size1: 40px;
+$text-size2: 30px;
+
+@mixin square {
+    size: 5px;
+
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+            
+}
+
+.div {
+    display: flex;
+    flex-direction: row;
+
+    .options-flex {
+        display: flex;
+        flex-direction: column;
+        height: $screen-height;
+        width: 20vw;
+        background-color: $options-flex-color;
+        border-right: 1px solid;
+        align-items: center;
+        .text1 {
+            font-size: $text-size1;
+        }
+        .text2 {
+            font-size: $text-size2;
+            margin-top: 50px;            
+        }
+        .squares {
+            flex-direction: row;
+            
+        }
+
+    }
+
+    .area-flex {
+        display: flex;
+        height: $screen-height;
+        width: 80vw;
+    }
+
+}
