@@ -1,0 +1,177 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    display: grid;
+    width: 100%;    
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr 50px;
+    grid-template-areas: 
+        'topo'
+        'conteudo'
+        'rodape';
+}
+
+@media screen and (max-width: 800px) {
+    .th-agent {
+        display: none;
+    }
+    .header-menu p {
+        font-size: 10px;
+        color: black;
+    }
+
+    #text1 {
+        left: 5px !important;
+    }
+
+    #text2 {
+        right: 5px !important;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .th-country {
+        display: none;
+    }
+
+    #text1 {
+        left: 25px !important;
+    }
+
+    #text2 {
+        right: 25px !important;
+    }
+
+}
+
+@keyframes brilhante {
+    0% { color: salmon; }
+    50% { color: rgb(255, 188, 181); }
+    100% { color: salmon; }
+}
+
+@keyframes aviaozinho1 {
+    0% { transform: rotate(0deg); 
+         left: 10px; }
+    100% { transform: rotate(360deg); 
+         left: 900px; }
+}
+
+@keyframes aviaozinho2 {
+    0% { transform: rotate(0deg); 
+         right: 10px; }
+    100% { transform: rotate(-360deg); 
+         right: 900px; }
+}
+
+header {
+    grid-area: topo;
+    background-color: darkblue;
+    position: relative;
+}
+
+main {
+    grid-area: conteudo;
+}
+
+footer {
+    text-align: center;
+    grid-area: rodape;
+    background-color: darkblue;
+}
+
+.header-menu {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    background-color: white;
+    text-align: center;
+}
+
+.header-menu p {
+    animation: brilhante 2s infinite;
+}
+
+.main-div {
+    background-color: darkblue;
+    padding: 10px;
+    border-top: 1px solid white;
+}
+
+.main-div p {
+    text-align: center;
+    font-size: 50px;
+    color: white;
+}
+
+#image-menu {
+    width: 85px;
+    height: 85px;
+    border-radius: 50px;
+}
+
+#text1, #text2 {
+    top: 30px;
+    font-size: 30px;
+    color: salmon;
+    display: inline-block;
+    position: absolute;
+}
+
+#text1 {
+    left: 50px;
+}
+
+#text2 {
+    right: 50px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td {
+    padding: 10px;
+    padding-top: 20px;
+}
+
+th {
+    color: darkred;
+    font-size: 25px; 
+}
+
+td {
+    color: darkblue;
+}
+
+tr:nth-child(even) {
+    background-color: #e6f0ff; 
+}
+
+tr:hover {
+    background-color: #bbb; 
+}
+
+.plane-icon {
+    position: relative;
+}
+
+.icon1, .icon2 {
+    position: absolute;
+    top: 5px;
+}
+
+.icon1 {
+    animation: aviaozinho1 2s infinite alternate;
+}
+
+.icon2 {
+    animation: aviaozinho2 2s infinite alternate;
+}
