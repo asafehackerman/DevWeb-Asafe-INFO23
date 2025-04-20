@@ -9,24 +9,71 @@
   </head>
 
   <body>
-    <div class="div">
+    <div class="container">
       <div class="options-flex">
         <p class="text1">SIMULADOR</p>
         <p class="text1">Flexbox</p>
 
-        <p class="text2">Preenchimento</p>
-        <div class="squares1">
+        <p class="text2">Preenchimento</p> <!-- Preenchimento -->
+        <div class="squares1"> <!-- quadrados 1 -->
           <div class="violet"></div>
           <div class="red"></div>
           <div class="blue"></div>
         </div>
-        <div class="squares2">
+
+        <div class="squares2"> <!-- quadrados 2 -->
           <div class="white"></div>
           <div class="orange"></div>
           <div class="green"></div>
         </div>
+
+        <p class="text2">Formato</p> <!-- Formato -->
+        <div class="formats">
+          <div class="square-format"></div>
+          <div class="circle-format"></div>
+        </div>
+
+        <p class="text2">Tamanho</p> <!-- Tamanho -->
+        <input type="text" value="140"/>
+
+        <p class="text2">Alinhamento</p> <!-- Alinhamento -->
+        <select class="select-direction"> <!-- Flex Direction -->
+          <option>FLEX-DIRECTION</option>
+          <option>Row</option>
+          <option>Column</option>
+          <option>Row-Reverse</option>
+          <option>Column-Reverse</option>
+        </select>
+        
+        <select class="select-justify"> <!-- Justify Content -->
+          <option>JUSTIFY-CONTENT</option>
+          <option>Center</option>
+          <option>Flex-Start</option>
+          <option>Flex-End</option>
+          <option>Space-Around</option>
+          <option>Space-Between</option>
+        </select>
+
+        <select class="select-align"> <!-- Align Items -->
+          <option>ALIGN-ITEMS</option>
+          <option>Center</option>
+          <option>Flex-Start</option>
+          <option>Flex-End</option>
+          <option>Stretch</option>
+          <option>Baseline</option>
+        </select>
+      </div> <!-- fim da options-flex -->
+
+      <div class="area-flex"> <!-- área de edição do flexbox -->
+        <div class="flexbox">
+          <div class="flex-square1">1</div>
+          <div class="flex-square2">2</div>
+          <div class="flex-square3">3</div>
+        </div>
       </div>
-      <div class="area-flex"></div>
     </div>
   </body>
+
+  <script src="script.js"></script>
+
 </html>

@@ -2,10 +2,49 @@ $options-flex-color: #d3b8ff;
 $screen-height: 100vh;
 $text-size1: 40px;
 $text-size2: 30px;
+$violet: rgb(191, 81, 255);
 
 @mixin square {
-    size: 5px;
+    height: 40px;
+    width: 40px;
+    background-color: red;
+    margin: 5px;
 
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@mixin format {
+    height: 45px;
+    width: 45px;
+    background-color: $violet;
+ 
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@mixin select {
+    height: 45px;
+    width: 15vw;
+    margin: 5px;
+    font-size: 20px;
+
+    option:first-child {
+        display: none;
+    }
+}
+
+@mixin flex-square {
+    display: flex;
+    height: 140px;
+    width: 140px;
+    background-color: $violet;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    border: 5px solid black;
 }
 
 * {
@@ -18,7 +57,7 @@ body {
             
 }
 
-.div {
+.container {
     display: flex;
     flex-direction: row;
 
@@ -28,26 +67,96 @@ body {
         height: $screen-height;
         width: 20vw;
         background-color: $options-flex-color;
-        border-right: 1px solid;
+        border-right: 3px solid;
         align-items: center;
         .text1 {
             font-size: $text-size1;
         }
         .text2 {
             font-size: $text-size2;
-            margin-top: 50px;            
+            margin-top: 25px;            
         }
-        .squares {
+        .squares1 {
+            display: flex;
             flex-direction: row;
-            
+                .violet {
+                    @include square;
+                    background-color: $violet;
+                }
+                .red {
+                    @include square;
+                    background-color: red;
+                }
+                .blue {
+                    @include square;
+                    background-color: rgb(0, 102, 255);
+                }
         }
-
+        .squares2 {
+            display: flex;
+            flex-direction: row;
+                .white {
+                    @include square;
+                    background-color: white;
+                }
+                .orange {
+                    @include square;
+                    background-color: rgb(255, 102, 0);
+                }
+                .green {
+                    @include square;
+                    background-color: rgb(0, 255, 0);
+                }
+        }
+        .formats {
+            display: flex;
+            flex-direction: row;
+            .square-format {
+                @include format;
+                margin: 5px;
+            }
+            .circle-format {
+                @include format;
+                border-radius: 50%;
+                margin: 5px;
+            }
+        }
+        input {
+            margin-top: 10px;
+            height: 45px;
+            width: 15vw;
+            font-size: 20px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        .select-direction {
+            @include select;
+        }
+        .select-justify {
+            @include select;
+        }
+        .select-align {
+            @include select;
+        }
     }
-
     .area-flex {
         display: flex;
         height: $screen-height;
         width: 80vw;
+        .flexbox {
+            display: flex;
+            .flex-square1 {
+                @include flex-square;
+                margin: 5px;
+            }
+            .flex-square2 {
+                @include flex-square;
+                margin: 5px;
+            }
+            .flex-square3 {
+                @include flex-square;
+                margin: 5px;
+            }   
+        }
     }
-
 }

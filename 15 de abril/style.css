@@ -7,31 +7,190 @@ body {
   font-family: "Times New Roman", Times, serif;
 }
 
-.div {
+.container {
   display: flex;
   flex-direction: row;
 }
-.div .options-flex {
+.container .options-flex {
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 20vw;
   background-color: #d3b8ff;
-  border-right: 1px solid;
+  border-right: 3px solid;
   align-items: center;
 }
-.div .options-flex .text1 {
+.container .options-flex .text1 {
   font-size: 40px;
 }
-.div .options-flex .text2 {
+.container .options-flex .text2 {
   font-size: 30px;
-  margin-top: 50px;
+  margin-top: 25px;
 }
-.div .options-flex .squares {
+.container .options-flex .squares1 {
+  display: flex;
   flex-direction: row;
 }
-.div .area-flex {
+.container .options-flex .squares1 .violet {
+  height: 40px;
+  width: 40px;
+  background-color: red;
+  margin: 5px;
+  background-color: rgb(191, 81, 255);
+}
+.container .options-flex .squares1 .violet:hover {
+  cursor: pointer;
+}
+.container .options-flex .squares1 .red {
+  height: 40px;
+  width: 40px;
+  background-color: red;
+  margin: 5px;
+  background-color: red;
+}
+.container .options-flex .squares1 .red:hover {
+  cursor: pointer;
+}
+.container .options-flex .squares1 .blue {
+  height: 40px;
+  width: 40px;
+  background-color: red;
+  margin: 5px;
+  background-color: rgb(0, 102, 255);
+}
+.container .options-flex .squares1 .blue:hover {
+  cursor: pointer;
+}
+.container .options-flex .squares2 {
+  display: flex;
+  flex-direction: row;
+}
+.container .options-flex .squares2 .white {
+  height: 40px;
+  width: 40px;
+  background-color: red;
+  margin: 5px;
+  background-color: white;
+}
+.container .options-flex .squares2 .white:hover {
+  cursor: pointer;
+}
+.container .options-flex .squares2 .orange {
+  height: 40px;
+  width: 40px;
+  background-color: red;
+  margin: 5px;
+  background-color: rgb(255, 102, 0);
+}
+.container .options-flex .squares2 .orange:hover {
+  cursor: pointer;
+}
+.container .options-flex .squares2 .green {
+  height: 40px;
+  width: 40px;
+  background-color: red;
+  margin: 5px;
+  background-color: rgb(0, 255, 0);
+}
+.container .options-flex .squares2 .green:hover {
+  cursor: pointer;
+}
+.container .options-flex .formats {
+  display: flex;
+  flex-direction: row;
+}
+.container .options-flex .formats .square-format {
+  height: 45px;
+  width: 45px;
+  background-color: rgb(191, 81, 255);
+  margin: 5px;
+}
+.container .options-flex .formats .square-format:hover {
+  cursor: pointer;
+}
+.container .options-flex .formats .circle-format {
+  height: 45px;
+  width: 45px;
+  background-color: rgb(191, 81, 255);
+  border-radius: 50%;
+  margin: 5px;
+}
+.container .options-flex .formats .circle-format:hover {
+  cursor: pointer;
+}
+.container .options-flex input {
+  margin-top: 10px;
+  height: 45px;
+  width: 15vw;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.container .options-flex .select-direction {
+  height: 45px;
+  width: 15vw;
+  margin: 5px;
+  font-size: 20px;
+}
+.container .options-flex .select-direction option:first-child {
+  display: none;
+}
+.container .options-flex .select-justify {
+  height: 45px;
+  width: 15vw;
+  margin: 5px;
+  font-size: 20px;
+}
+.container .options-flex .select-justify option:first-child {
+  display: none;
+}
+.container .options-flex .select-align {
+  height: 45px;
+  width: 15vw;
+  margin: 5px;
+  font-size: 20px;
+}
+.container .options-flex .select-align option:first-child {
+  display: none;
+}
+.container .area-flex {
   display: flex;
   height: 100vh;
   width: 80vw;
+}
+.container .area-flex .flexbox {
+  display: flex;
+}
+.container .area-flex .flexbox .flex-square1 {
+  display: flex;
+  height: 140px;
+  width: 140px;
+  background-color: rgb(191, 81, 255);
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  border: 5px solid black;
+  margin: 5px;
+}
+.container .area-flex .flexbox .flex-square2 {
+  display: flex;
+  height: 140px;
+  width: 140px;
+  background-color: rgb(191, 81, 255);
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  border: 5px solid black;
+  margin: 5px;
+}
+.container .area-flex .flexbox .flex-square3 {
+  display: flex;
+  height: 140px;
+  width: 140px;
+  background-color: rgb(191, 81, 255);
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  border: 5px solid black;
+  margin: 5px;
 }/*# sourceMappingURL=style.css.map */
