@@ -2,7 +2,6 @@ $options-flex-color: #d3b8ff;
 $screen-height: 100vh;
 $text-size1: 40px;
 $text-size2: 30px;
-$violet: rgb(191, 81, 255);
 
 @mixin square {
     height: 40px;
@@ -18,7 +17,8 @@ $violet: rgb(191, 81, 255);
 @mixin format {
     height: 45px;
     width: 45px;
-    background-color: $violet;
+    background-color: violet;
+    transition: background-color 0.3s ease-in-out;
  
     &:hover {
         cursor: pointer;
@@ -40,11 +40,12 @@ $violet: rgb(191, 81, 255);
     display: flex;
     height: 140px;
     width: 140px;
-    background-color: $violet;
+    background-color: violet;
     align-items: center;
     justify-content: center;
     font-size: 45px;
     border: 5px solid black;
+    transition: all 0.3s ease-in-out;
 }
 
 * {
@@ -81,7 +82,7 @@ body {
             flex-direction: row;
                 .violet {
                     @include square;
-                    background-color: $violet;
+                    background-color: violet;
                 }
                 .red {
                     @include square;
@@ -89,7 +90,7 @@ body {
                 }
                 .blue {
                     @include square;
-                    background-color: rgb(0, 102, 255);
+                    background-color: blue;
                 }
         }
         .squares2 {
@@ -101,11 +102,11 @@ body {
                 }
                 .orange {
                     @include square;
-                    background-color: rgb(255, 102, 0);
+                    background-color: orange;
                 }
                 .green {
                     @include square;
-                    background-color: rgb(0, 255, 0);
+                    background-color: green;
                 }
         }
         .formats {
@@ -116,9 +117,8 @@ body {
                 margin: 5px;
             }
             .circle-format {
-                @include format;
+                @extend .square-format;
                 border-radius: 50%;
-                margin: 5px;
             }
         }
         input {
@@ -144,19 +144,11 @@ body {
         height: $screen-height;
         width: 80vw;
         .flexbox {
-            display: flex;
-            .flex-square1 {
+            @extend .area-flex;
+            .flex-square1, .flex-square2, .flex-square3 {
                 @include flex-square;
                 margin: 5px;
             }
-            .flex-square2 {
-                @include flex-square;
-                margin: 5px;
-            }
-            .flex-square3 {
-                @include flex-square;
-                margin: 5px;
-            }   
         }
-    }
+    } 
 }
