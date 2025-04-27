@@ -40,7 +40,7 @@ a {
 
 a:hover {
     color: black;
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 0.3px white;
 }
 
 ul, li {
@@ -60,10 +60,6 @@ ul, li {
     max-height: 70vh;
     flex: 1 1 40%;
     min-width: 300px;
-}
-
-.tarefa-div::-webkit-scrollbar {
-    display: none;
 }
 
 .info-div {
@@ -115,6 +111,8 @@ ul, li {
         width: 30px;
         height: 30px;
         z-index: 9999;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
     }
 
     .tarefa-div-cellphone {
@@ -123,7 +121,7 @@ ul, li {
         right: 0;
         width: 100vw;
         height: 100vh;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.9);
         display: none;
         flex-direction: column;
         align-items: center;
@@ -133,6 +131,11 @@ ul, li {
         z-index: 9998;
         transition: all 0.3s ease-in-out;
     }
+}
+
+.cellphone-menu:hover {
+    color: black;
+    -webkit-text-stroke: 0.3px white;
 }
 
 .tarefa-div-cellphone, .cellphone-menu {
