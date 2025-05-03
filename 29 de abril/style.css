@@ -1,5 +1,56 @@
+body {
+    color:white
+}
+
 .ifpr {
     background-image: url("https://media.licdn.com/dms/image/v2/C4D0BAQF6OET0cbhmEA/company-logo_200_200/company-logo_200_200/0/1631369786185/ifpr_logo?e=2147483647&v=beta&t=3NvMieDNhKm1MC9uYyjQ9AT1x5uvJqvXt5c3Z4cfPLA");
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.tamanho-navbar {
+    width: 95vw;
+}
+
+/* Ajustes de Responsividade */
+@media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: row !important;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+  
+    .nav-item {
+      margin: 0.25rem !important;
+    }
+  
+    .form-range {
+      margin-top: 0.5rem !important;
+    }
+  
+    #dual_x_div, #piechart {
+      height: 50vh !important;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .col-md-3 .card-body {
+      padding: 0.5rem !important;
+    }
+    
+    .card-title {
+      font-size: 1.1rem !important;
+    }
+    
+    .chart-container {
+      height: 300px !important;
+    }
+  }
+  
+  /* Garante que os gráficos se redimensionem */
+  .google-chart {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 200px;
+  }
