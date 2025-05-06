@@ -1,0 +1,71 @@
+@mixin background-template {
+    position: fixed;
+    background-size: cover;
+    background-position: center;
+    z-index: -99999;
+    width: 100vw;
+    height: 100vh;
+}
+
+@mixin img-info-template {
+    margin: 12px;
+    height: 100px;
+    width: 100px;
+}
+
+@mixin info-div-text-template {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    margin-left: 60px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    color: white;
+    font-family: 'Times New Roman', 'Times', 'serif';
+}
+
+.background-1 {
+    @include background-template();
+    background-image: url(images/background.png);
+}
+
+.background-2 {
+    @include background-template();
+    background-image: url(images/background2.png);
+}
+
+.background-3 {
+    @include background-template();
+    background-image: url(images/background3.png);
+}
+
+.background-4 {
+    @include background-template();
+    background-image: url(images/background4.png);
+}
+
+.info-div-class {
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    width: 350px;
+    margin: 20px;
+    background-color: rgba(black, 0.8);
+    box-shadow: 0 0 10px 8px rgb(255, 255, 255);
+    .time-div-class {
+        display: flex;
+        flex-direction: row;
+        .clock-img {
+            @include img-info-template();
+        }
+        .timer-text-class {
+            @include info-div-text-template();
+        }
+    }
+}

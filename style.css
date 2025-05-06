@@ -132,11 +132,6 @@ ul, li {
     }
 }
 
-.cellphone-menu:hover {
-    color: black;
-    -webkit-text-stroke: 0.3px white;
-}
-
 .tarefa-div-cellphone, .cellphone-menu {
     display: none;
 }

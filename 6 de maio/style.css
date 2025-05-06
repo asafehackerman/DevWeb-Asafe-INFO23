@@ -1,0 +1,74 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  color: white;
+  font-family: "Times New Roman", "Times", "serif";
+}
+
+.background-1 {
+  position: fixed;
+  background-size: cover;
+  background-position: center;
+  z-index: -99999;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(images/background.png);
+}
+
+.background-2 {
+  position: fixed;
+  background-size: cover;
+  background-position: center;
+  z-index: -99999;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(images/background2.png);
+}
+
+.background-3 {
+  position: fixed;
+  background-size: cover;
+  background-position: center;
+  z-index: -99999;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(images/background3.png);
+}
+
+.background-4 {
+  position: fixed;
+  background-size: cover;
+  background-position: center;
+  z-index: -99999;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(images/background4.png);
+}
+
+.info-div-class {
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  width: 350px;
+  margin: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 10px 8px rgb(255, 255, 255);
+}
+.info-div-class .time-div-class {
+  display: flex;
+  flex-direction: row;
+}
+.info-div-class .time-div-class .clock-img {
+  margin: 12px;
+  height: 100px;
+  width: 100px;
+}
+.info-div-class .time-div-class .timer-text-class {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  margin-left: 60px;
+}/*# sourceMappingURL=style.css.map */
