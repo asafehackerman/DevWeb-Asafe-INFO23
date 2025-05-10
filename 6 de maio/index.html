@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,16 +8,41 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 
-<body>
-    <div id="background" class="background-1">
-        <div id="info-div" class="info-div-class">
-            <div id="time-div" class="time-div-class"><img class="clock-img" src="images/clock.png"><p id="timer-text" class="timer-text-class">00:00:00</p></div>
-            <div id="nave-div" class="nave-div-class"><img class="nave-img" src="images/nave.png"><p id="nave-text" class="nave-text-class">00:00:00</p></div>
-            <div id="alien-div" class="alien-div-class"><img class="alien-img" src="images/alien.png"><p id="alien-text" class="alien-text-class">00:00:00</p></div>
-        </div>
-        <div>
+<body onload="resume()">
+    <!-- Tela de pausa -->
+    <div id="pause-screen" class="pause-screen-class">PAUSED</div>
 
+    <!-- Fundo do jogo -->
+    <div id="background" class="background-1">
+
+        <!-- Informações do jogo -->
+        <div id="info-div" class="info-div-class">
+            <div id="time-div" class="time-div-class">
+                <img class="clock-img" src="images/clock.png">
+                <p id="timer-text" class="timer-text-class">00:00:00</p>
+            </div>
+            <div id="nave-div" class="nave-div-class">
+                <img class="nave-img" src="images/nave.png">
+                <p id="nave-text" class="nave-text-class">LIFE: 3</p>
+            </div>
+            <div id="alien-div" class="alien-div-class">
+                <img class="alien-img" src="images/alien.png">
+                <p id="alien-text" class="alien-text-class">ALIEN: 0</p>
+            </div>
+        </div>
+        
+        <!-- Nave do jogador e mísseis -->
+        <div id="player-div" class="player-div-class">
+            <!-- Container dos mísseis, centralizado sobre a nave -->
+            <div class="missile-container">
+                <img src="images/missil.png" class="missile-img-class" id="missile1">
+                <img src="images/missil.png" class="missile-img-class" id="missile2">
+            </div>
+            <!-- Nave -->
+            <img id="player-img" class="player-img-class" src="images/nave.png">
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
