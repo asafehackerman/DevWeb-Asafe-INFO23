@@ -107,7 +107,7 @@ body {
     bottom: 0;
     height: 300px;
     width: 300px;
-    left: 42.2%;  
+    left: 42.2%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -132,6 +132,16 @@ body {
 }
 
 .missile-img-class {
-    width: 50px; /* Novo tamanho para os mísseis */
+    width: 50px;
     height: 200px;
+}
+
+@keyframes missile-shoot {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100vh);
+    }
+
 }

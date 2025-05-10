@@ -3,7 +3,8 @@ let min = 0;
 let seg = 0;
 let id;
 let left = 0;
-let paused = true;
+
+var paused = true;
 
 const playerDiv = document.querySelector("#player-div");
 const timer = document.querySelector("#timer-text");
@@ -74,8 +75,11 @@ document.addEventListener("keydown", function(e) {
     playerDiv.style.left = `${left}px`;
 });
 
-document.addEventLister("keydown", function(e) {
+document.addEventListener("keydown", function(e) {
     if (paused === true) return;
 
-    
+    if (e.key === " ") {
+        document.querySelector("#missile1").style.animation = "missile-shoot 1s linear forwards";
+        document.querySelector("#missile2").style.animation = "missile-shoot 1s linear forwards";
+    }
 });
