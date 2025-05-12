@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 
-<body onload="resume()">
+<body onload="resume()" onload="load()" >
     <!-- Tela de pausa -->
     <div id="pause-screen" class="pause-screen-class">PAUSED</div>
 
@@ -31,19 +31,19 @@
             </div>
         </div>
 
-        <!-- Nave do jogador e mísseis -->
-        <div id="player-div" class="player-div-class">
+        <div class="player-class">
+
             <!-- Container dos mísseis, centralizado sobre a nave -->
-            <div class="missile-container">
-                <div id="missile1">
-                    <img src="images/missil.png" class="missile-img-class">
-                </div>
-                <div id="missile2">
-                    <img src="images/missil.png" class="missile-img-class">
-                </div>
+            <div id="missile1" class="missile1-class">
+                <img src="images/missil.png" class="missile-img-class">
+            </div>
+            <div id="missile2" class="missile2-class">
+                <img src="images/missil.png" class="missile-img-class">
             </div>
             <!-- Nave -->
-            <img id="player-img" class="player-img-class" src="images/nave.png">
+             <div id="nave-id" class="nave-class">
+                <img id="player-img" class="player-img-class" src="images/nave.png">
+            </div>
         </div>
     </div>
 

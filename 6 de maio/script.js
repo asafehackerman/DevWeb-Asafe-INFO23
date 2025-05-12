@@ -7,6 +7,7 @@ let left = 0;
 var paused = true;
 
 const playerDiv = document.querySelector("#player-div");
+const naveDiv = document.querySelector("#nave-id"); // Alterado para naveDiv
 const missileContainer = document.querySelector(".missile-container");
 const missileDiv1 = document.querySelector("#missile1");
 const missileDiv2 = document.querySelector("#missile2");
@@ -77,20 +78,33 @@ document.addEventListener("keydown", function(e) {
 
   const step = 60;
   const screenWidth = window.innerWidth;
-  const playerWidth = playerDiv.offsetWidth;
+  const naveWidth = naveDiv.offsetWidth;
 
-  left = parseInt(window.getComputedStyle(playerDiv).left) || 0;
+  left = parseFloat(window.getComputedStyle(naveDiv).left) || 0;
 
+  // Movendo a nave
   if (e.key === "ArrowLeft" && left > 0) {
     left = Math.max(0, left - step);
   }
 
-  if (e.key === "ArrowRight" && left + playerWidth < screenWidth) {
-    left = Math.min(screenWidth - playerWidth, left + step);
+  if (e.key === "ArrowRight" && left + naveWidth < screenWidth) {
+    left = Math.min(screenWidth - naveWidth, left + step);
   }
+  naveDiv.style.left = `${left}px`;
+  naveDiv.style.left = `${left}px`; // Atualizando a posição da nave corretamente
 
-  playerDiv.style.left = `${left}px`;
+  missileDirection(left, naveWidth);
 });
+
+function missileDirection(direction, naveWidth) {
+  if (!missile1Fired) {
+    missileDiv1.style.left = `${direction + naveWidth / 2 - missileDiv1.offsetWidth / 2}px`;
+  }
+  if (!missile2Fired) {
+    missileDiv2.style.left = `${direction + naveWidth / 2 - missileDiv2.offsetWidth / 2}px`;
+  }
+}
+
 
 function shootMissile(missileDiv, isActive, fired) {
   if (paused === true || isActive || fired) return true;
