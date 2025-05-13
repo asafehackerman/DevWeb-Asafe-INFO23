@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 
-<body onload="resume()" onload="load()" >
+<body onload="resume()">
     <!-- Tela de pausa -->
     <div id="pause-screen" class="pause-screen-class">PAUSED</div>
+    <div id="lose-screen" class="lose-screen-class">YOU LOSE</div>
+    <div id="over-screen" class="over-screen-class">GAME OVER</div>
+    <div id="win-screen" class="win-screen-class">YOU WIN</div>
 
     <!-- Fundo do jogo -->
     <div id="background" class="background-1">
@@ -29,6 +32,12 @@
                 <img class="alien-img" src="images/alien.png">
                 <p id="alien-text" class="alien-text-class">ALIEN: 0</p>
             </div>
+        </div>
+
+        <div id="aliens-div-id" class="aliens-div">
+            <img class="alien-img" id="alien1" src="images/alien.png">
+            <img class="alien-img" id="alien2" src="images/alien.png">
+            <img class="alien-img" id="alien3" src="images/alien.png">            
         </div>
 
         <div class="player-class">
