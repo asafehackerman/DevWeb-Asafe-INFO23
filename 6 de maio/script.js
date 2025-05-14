@@ -3,7 +3,9 @@ let min = 0;
 let seg = 0;
 let id;
 let left = 0;
+let inputEnabled = true;
 
+var faseAtual = 1;
 var aliensMortos = 0;
 var paused = true;
 var life = 3;
@@ -17,6 +19,7 @@ const aliensDiv = document.querySelector("#aliens-div-id");
 const alien1 = document.querySelector("#alien1");
 const alien2 = document.querySelector("#alien2");
 const alien3 = document.querySelector("#alien3");
+const background = document.querySelector("#background");
 const timer = document.querySelector("#timer-text");
 const numberAlien = document.querySelector("#alien-text");
 
@@ -26,6 +29,7 @@ let missile1Fired = false;
 let missile2Fired = false;
 let canReturnMissiles = false;
 
+// Timer do jogo
 function add() {
   seg++;
   if (seg === 60) {
@@ -44,27 +48,7 @@ function add() {
   timer.textContent = `${textoHora}:${textoMin}:${textoSeg}`;
 }
 
-function resume() {
-  if (paused === true) {
-    document.querySelector("#pause-screen").style.display = "none";
-    id = setInterval(add, 1000);
-    paused = false;
-    missileDiv1.style.animationPlayState = missile1Fired ? 'running' : 'running';
-    missileDiv2.style.animationPlayState = missile2Fired ? 'running' : 'running';
-  } else {
-    missileDiv1.style.animationPlayState = 'running';
-    missileDiv2.style.animationPlayState = 'running';
-  }
-}
-
-function showScreen(screen) {
-  document.querySelector("#" + screen).style.display = "flex";
-}
-
-function hideScreen(screen) {
-  document.querySelector("#" + screen).style.display = "none";
-}
-
+// Função para pausar o jogo
 function pause() {
   if (paused === false) {
     showScreen("pause-screen");
@@ -72,46 +56,38 @@ function pause() {
     paused = true;
     missileDiv1.style.animationPlayState = 'paused';
     missileDiv2.style.animationPlayState = 'paused';
+    aliensDiv.style.animationPlayState = 'paused';
   }
 }
 
-function win() {
-  document.querySelector("#win-screen").style.display = "flex";
-  clearInterval(id);
+// Função para resumir o jogo após o pause
+function resume() {
+  if (paused === true) {
+    hideScreen("pause-screen");
+    id = setInterval(add, 1000);
+    paused = false;
+    missileDiv1.style.animationPlayState = 'running';
+    missileDiv2.style.animationPlayState = 'running';
+    aliensDiv.style.animationPlayState = 'running';    
+  }
 }
 
-document.addEventListener("keydown", function(e) {
-  if (e.key === "p" || e.key === "P") {
-    if (paused) {
-      resume();
-    } else {
-      pause();
-    }
-  }
-});
+// Função para mostrar uma tela
+function showScreen(screen) {
+  document.querySelector("#" + screen).style.display = "flex";
+  inputEnabled = false;
+}
 
-// Movimentação da nave
-document.addEventListener("keydown", function(e) {
-  if (paused === true) return;
+// Função para esconder uma tela
+function hideScreen(screen) {
+  document.querySelector("#" + screen).style.display = "none";
+  inputEnabled = true;
+}
 
-  const step = 60;
-  const screenWidth = window.innerWidth;
-  const naveWidth = naveDiv.offsetWidth;
-
-  left = parseFloat(window.getComputedStyle(naveDiv).left) || 0;
-
-  if (e.key === "ArrowLeft" && left > 0) {
-    left = Math.max(0, left - step);
-  }
-
-  if (e.key === "ArrowRight" && left + naveWidth < screenWidth) {
-    left = Math.min(screenWidth - naveWidth, left + step);
-  }
-
-  naveDiv.style.left = `${left}px`;
-
-  missileDirection(left, naveWidth);
-});
+// Função para mudar a imagem do background
+function changeBackground(backgroundImage) {
+  background.style.backgroundImage = "url('images/" + backgroundImage + "')";
+}
 
 function missileDirection(direction, naveWidth) {
   if (!missile1Fired) {
@@ -122,7 +98,8 @@ function missileDirection(direction, naveWidth) {
   }
 }
 
-function colisao(missil, alien) {
+// Colisão da nave com o míssil
+function alienMissileCollision(missil, alien) {
   const m = missil.getBoundingClientRect();
   const a = alien.getBoundingClientRect();
 
@@ -134,21 +111,22 @@ function colisao(missil, alien) {
   );
 }
 
-function monitorarColisao(missil) {
+// Função para monitorar as colissões
+function monitorColission(missil) {
   const intervalo = setInterval(() => {
-    if (alien1.style.visibility !== "hidden" && colisao(missil, alien1)) {
+    if (alien1.style.visibility !== "hidden" && alienMissileCollision(missil, alien1)) {
       alien1.style.visibility = "hidden";
       missil.style.visibility = "hidden";
       aliensMortos++;
       numberAlien.textContent = `ALIEN: ${aliensMortos}`;
       clearInterval(intervalo);
-    } else if (alien2.style.visibility !== "hidden" && colisao(missil, alien2)) {
+    } else if (alien2.style.visibility !== "hidden" && alienMissileCollision(missil, alien2)) {
       alien2.style.visibility = "hidden";
       missil.style.visibility = "hidden";
       aliensMortos++;
       numberAlien.textContent = `ALIEN: ${aliensMortos}`;
       clearInterval(intervalo);
-    } else if (alien3.style.visibility !== "hidden" && colisao(missil, alien3)) {
+    } else if (alien3.style.visibility !== "hidden" && alienMissileCollision(missil, alien3)) {
       alien3.style.visibility = "hidden";
       missil.style.visibility = "hidden";
       aliensMortos++;
@@ -158,14 +136,16 @@ function monitorarColisao(missil) {
   }, 30);
 }
 
+// Função para atirar míssil
 function shootMissile(missileDiv, isActive, fired) {
   if (paused === true || isActive || fired) return true;
 
   missileDiv.style.animation = "missile-shoot 1s linear forwards";
-  monitorarColisao(missileDiv);
+  monitorColission(missileDiv);
   return true;
 }
 
+// Função para resetar os mísseis
 function resetMissile(missileDiv) {
   if(missileDiv.style.visibility == "hidden") {
     missileDiv.style.visibility = "visible";
@@ -174,34 +154,95 @@ function resetMissile(missileDiv) {
   missileDiv.style.top = '';
 }
 
-document.addEventListener("keydown", function(e) {
-  if (paused === true) return;
+// Função para redefinir as animações
+function reviveAnimations() {
+  alien1.style.visibility = "visible";
+  alien2.style.visibility = "visible";
+  alien3.style.visibility = "visible";
 
-  if (e.key === " ") {
-    if (!missile1Fired) {
-      missile1Fired = shootMissile(missileDiv1, missile1Active, missile1Fired);
-      missile1Active = true;
-    } else if (!missile2Fired) {
-      missile2Fired = shootMissile(missileDiv2, missile2Active, missile2Fired);
-      missile2Active = true;
-    } else if (missile1Fired && missile2Fired && canReturnMissiles) {
-      resetMissile(missileDiv1);
-      resetMissile(missileDiv2);
-      missile1Fired = false;
-      missile2Fired = false;
-      canReturnMissiles = false;
+  resetMissile(missileDiv1);
+  resetMissile(missileDiv2);
+
+  missile1Fired = false;
+  missile2Fired = false;
+  missile1Active = false;
+  missile2Active = false;
+  canReturnMissiles = false;
+
+  aliensDiv.style.animation = 'none';
+  aliensDiv.offsetHeight;
+  aliensDiv.style.animation = ''; 
+}
+
+
+// EventListener para movimentação da nave
+document.addEventListener("keydown", function(e) {
+  if(inputEnabled == true) {
+    if (paused === true) return;
+
+    const step = 60;
+    const screenWidth = window.innerWidth;
+    const naveWidth = naveDiv.offsetWidth;
+
+    left = parseFloat(window.getComputedStyle(naveDiv).left) || 0;
+
+    if (e.key === "ArrowLeft" && left > 0) {
+      left = Math.max(0, left - step);
+    }
+
+    if (e.key === "ArrowRight" && left + naveWidth < screenWidth) {
+      left = Math.min(screenWidth - naveWidth, left + step);
+    }
+
+    naveDiv.style.left = `${left}px`;
+
+    missileDirection(left, naveWidth);
+  }
+});
+
+// EventListener para pausar o jogo
+document.addEventListener("keydown", function(e) {
+    if (e.key === "p" || e.key === "P") {
+      if (paused) {
+        resume();
+      } else {
+        pause();
+      }
+    }
+});
+
+// EventListener para disparar os mísseis 
+document.addEventListener("keydown", function(e) {
+  if(inputEnabled == true) {
+    if (paused === true) return;
+
+    if (e.key === " ") {
+      if (!missile1Fired) {
+        missile1Fired = shootMissile(missileDiv1, missile1Active, missile1Fired);
+        missile1Active = true;
+      } else if (!missile2Fired) {
+        missile2Fired = shootMissile(missileDiv2, missile2Active, missile2Fired);
+        missile2Active = true;
+      } else if (missile1Fired && missile2Fired && canReturnMissiles) {
+        resetMissile(missileDiv1);
+        resetMissile(missileDiv2);
+        missile1Fired = false;
+        missile2Fired = false;
+        canReturnMissiles = false;
+      }
     }
   }
 });
 
+// EventListener para o fim da animação do míssel 1
 missileDiv1.addEventListener('animationend', function() {
   missile1Active = false;
   if (missile2Fired && !canReturnMissiles) {
     canReturnMissiles = true;
   }
-  clearInterval(id);
 });
 
+// EventListener para o fim da animação do míssel 2
 missileDiv2.addEventListener('animationend', function() {
   missile2Active = false;
   if (missile1Fired && !canReturnMissiles) {
@@ -209,6 +250,7 @@ missileDiv2.addEventListener('animationend', function() {
   }
 });
 
+// EventListener para o fim da animação dos aliens (O que definirá o fim do jogo)
 aliensDiv.addEventListener('animationend', function() {
   if(alien1.style.visibility !== "hidden" || alien2.style.visibility !== "hidden" || alien3.style.visibility !== "hidden") {
       life--;
@@ -228,12 +270,29 @@ aliensDiv.addEventListener('animationend', function() {
         hideScreen("lose-screen");
         paused = true;
         resume();
-        aliensDiv.style.animation = 'none';
-        void aliensDiv.offsetWidth;
-        aliensDiv.style.animation = 'alien-move 2s linear forwards';
+        alien1.style.visibility = 'hidden';
+        alien2.style.visibility = 'hidden';
+        alien3.style.visibility = 'hidden';     
+        reviveAnimations(); 
       }
     }, 3000);
-  } else {
+  } else if(faseAtual == 4 && alien1.style.visibility == 'hidden' && alien2.style.visibility == 'hidden' && alien3.style.visibility == 'hidden') {
     showScreen("win-screen");
+    clearInterval(id);
+  } else if(alien1.style.visibility == 'hidden' && alien2.style.visibility == 'hidden' && alien3.style.visibility == 'hidden') {
+    faseAtual++;
+    changeBackground("background" + faseAtual + ".jpg");
+    reviveAnimations();
+    aliensDiv.style.animation = 'alien-move 8s linear forwards';
+  } else if(alien1.style.visibility == 'hidden' && alien2.style.visibility == 'hidden' && alien3.style.visibility == 'hidden') {
+    faseAtual++;
+    changeBackground("background" + faseAtual + ".jpg");
+    reviveAnimations();
+    aliensDiv.style.animation = 'alien-move 5s linear forwards';
+  } else if(alien1.style.visibility == 'hidden' && alien2.style.visibility == 'hidden' && alien3.style.visibility == 'hidden') {
+    faseAtual++;
+    changeBackground("background" + faseAtual + ".jpg");
+    reviveAnimations();
+    aliensDiv.style.animation = 'alien-move 3s linear forwards';
   }
 });
